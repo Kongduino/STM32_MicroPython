@@ -68,11 +68,12 @@ STATIC mp_obj_t kongduino_hexdump(mp_obj_t a_obj) {
 }
 
 STATIC mp_obj_t kongduino_decryptAES_ECB(mp_obj_t a_obj, mp_obj_t b_obj) {
+  // Buffer (multiple of 16 bytes), Key (16 bytes)
   uint8_t reqLen = 16;
   int lenA, lenB;
   mp_buffer_info_t bufinfoA, bufinfoB;
-  mp_get_buffer_raise(a_obj, &bufinfoA, MP_BUFFER_READ);
-  mp_get_buffer_raise(b_obj, &bufinfoB, MP_BUFFER_READ);
+  mp_get_buffer_raise(a_obj, &bufinfoA, MP_BUFFER_READ); // Buffer
+  mp_get_buffer_raise(b_obj, &bufinfoB, MP_BUFFER_READ); // Key
   lenA = bufinfoA.len / mp_binary_get_size('@', bufinfoA.typecode, NULL);
   lenB = bufinfoB.len / mp_binary_get_size('@', bufinfoB.typecode, NULL);
   uint8_t *buf = bufinfoA.buf;
@@ -92,11 +93,12 @@ STATIC mp_obj_t kongduino_decryptAES_ECB(mp_obj_t a_obj, mp_obj_t b_obj) {
 }
 
 STATIC mp_obj_t kongduino_encryptAES_ECB(mp_obj_t a_obj, mp_obj_t b_obj) {
+  // Buffer (multiple of 16 bytes), Key (16 bytes)
   uint8_t reqLen = 16;
   int lenA, lenB;
   mp_buffer_info_t bufinfoA, bufinfoB;
-  mp_get_buffer_raise(a_obj, &bufinfoA, MP_BUFFER_READ);
-  mp_get_buffer_raise(b_obj, &bufinfoB, MP_BUFFER_READ);
+  mp_get_buffer_raise(a_obj, &bufinfoA, MP_BUFFER_READ); // Buffer
+  mp_get_buffer_raise(b_obj, &bufinfoB, MP_BUFFER_READ); // Key
   lenA = bufinfoA.len / mp_binary_get_size('@', bufinfoA.typecode, NULL);
   lenB = bufinfoB.len / mp_binary_get_size('@', bufinfoB.typecode, NULL);
   uint8_t *buf = bufinfoA.buf;
@@ -115,12 +117,13 @@ STATIC mp_obj_t kongduino_encryptAES_ECB(mp_obj_t a_obj, mp_obj_t b_obj) {
 }
 
 STATIC mp_obj_t kongduino_encryptAES_CBC(mp_obj_t a_obj, mp_obj_t b_obj, mp_obj_t c_obj) {
+  // Buffer (multiple of 16 bytes), Key (16 bytes), Iv (16 bytes)
   uint8_t reqLen = 16;
   int lenA, lenB, lenC;
   mp_buffer_info_t bufinfoA, bufinfoB, bufinfoC;
-  mp_get_buffer_raise(a_obj, &bufinfoA, MP_BUFFER_READ);
-  mp_get_buffer_raise(b_obj, &bufinfoB, MP_BUFFER_READ);
-  mp_get_buffer_raise(c_obj, &bufinfoC, MP_BUFFER_READ);
+  mp_get_buffer_raise(a_obj, &bufinfoA, MP_BUFFER_READ); // Buffer
+  mp_get_buffer_raise(b_obj, &bufinfoB, MP_BUFFER_READ); // Key
+  mp_get_buffer_raise(c_obj, &bufinfoC, MP_BUFFER_READ); // Iv
   lenA = bufinfoA.len / mp_binary_get_size('@', bufinfoA.typecode, NULL);
   lenB = bufinfoB.len / mp_binary_get_size('@', bufinfoB.typecode, NULL);
   lenC = bufinfoC.len / mp_binary_get_size('@', bufinfoC.typecode, NULL);
@@ -137,12 +140,13 @@ STATIC mp_obj_t kongduino_encryptAES_CBC(mp_obj_t a_obj, mp_obj_t b_obj, mp_obj_
 }
 
 STATIC mp_obj_t kongduino_decryptAES_CBC(mp_obj_t a_obj, mp_obj_t b_obj, mp_obj_t c_obj) {
+  // Buffer (multiple of 16 bytes), Key (16 bytes), Iv (16 bytes)
   uint8_t reqLen = 16;
   int lenA, lenB, lenC;
   mp_buffer_info_t bufinfoA, bufinfoB, bufinfoC;
-  mp_get_buffer_raise(a_obj, &bufinfoA, MP_BUFFER_READ);
-  mp_get_buffer_raise(b_obj, &bufinfoB, MP_BUFFER_READ);
-  mp_get_buffer_raise(c_obj, &bufinfoC, MP_BUFFER_READ);
+  mp_get_buffer_raise(a_obj, &bufinfoA, MP_BUFFER_READ); // Buffer
+  mp_get_buffer_raise(b_obj, &bufinfoB, MP_BUFFER_READ); // Key
+  mp_get_buffer_raise(c_obj, &bufinfoC, MP_BUFFER_READ); // Iv
   lenA = bufinfoA.len / mp_binary_get_size('@', bufinfoA.typecode, NULL);
   lenB = bufinfoB.len / mp_binary_get_size('@', bufinfoB.typecode, NULL);
   lenC = bufinfoC.len / mp_binary_get_size('@', bufinfoC.typecode, NULL);
