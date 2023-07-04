@@ -18,6 +18,12 @@ The latter has been modified from the original to load the SD card, which wasn't
 
 I have compiled µP for a few boards, including the nRF52840 – pca100059, working on my Nordic Dongle. The builds include my custom code.
 
+Tested on the above and:
+
+* Nucleo-L476RG: As usual with STM boards, this was a pleasure to code and test on this device.
+
+![Nucleo-L476RG](assets/Nucleo-L476RG.png)
+
 ### Custom code
 
 The `kongduino` module has a few functions, mostly AES-related. You need to add one line in `Makefile` around line 358, to include `kongduino.c` in the compilation process. Included commands so far:
