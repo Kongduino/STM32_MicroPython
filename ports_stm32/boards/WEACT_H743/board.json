@@ -1,0 +1,13 @@
+{
+    "deploy": [
+        "../deploy.md"
+    ],
+    "docs": "",
+    "features": [],
+    "images": [],
+    "mcu": "STM32H743VIT6",
+    "product": "WeAct Studio STM32H743",
+    "thumbnail": "",
+    "url": "https://github.com/WeActStudio/MiniSTM32H7xx",
+    "vendor": "WeAct Studio"
+}
