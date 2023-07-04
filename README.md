@@ -43,3 +43,8 @@ The `kongduino` module has a few functions, mostly AES-related. You need to add 
 
 * `calculate_crc_table.c`: In the `crc.c` file, there's a function to compute the CRC table. I printed it out and initialize it at compile time, to save space, and improve speed.
 * `ziphex.sh`: a bash script to zip the .hex builds, before pushing to GitHub.
+
+
+## TODO
+
+I plan to add a lightweight LoRa library for sx1276. No plans for LoRaWAN, or sx1262 for now. We'll see...
