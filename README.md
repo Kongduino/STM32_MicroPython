@@ -38,6 +38,8 @@ The `kongduino` module has a few functions, mostly AES-related. You need to add 
 * `test_aes.py`: a demonstration of the aes functions.
 * `test_lzw.py`: a demonstration of the `lzw.py` library.
 * `lzw.py`: a cut-down implementation of LZW specifically for ASCII (0-127). You can put it in `lib/micropython-lib/python-stdlib` so that it is included in the firmware, and compiled as `lzw.mpy`.
+* `test_sx1276.py`: a script to test the `sx127x.py` library. The script works on any machine that has an SX1276 connected to it – you just need to set the pins properly. This is set up for a Nucleo-L476RG.
+* `sx127x.py`: the library. There are several version floating around, and most have issues. I have fixed most of them, and added features like TRNG. It'll do nicely until I write a library in C.
 
 ### Tools
 
