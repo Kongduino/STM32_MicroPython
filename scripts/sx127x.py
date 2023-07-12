@@ -455,4 +455,3 @@ class SX127x:
             ret[i] = self.getLoRandomByte()
         self.resetLoRa()
         return ret
-

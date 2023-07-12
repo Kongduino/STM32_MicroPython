@@ -1,8 +1,8 @@
 from kongduino import *
 import time, random
 
-randomBuff = bytearray(112)
-for i in range(0, 112):
+randomBuff = bytearray(96)
+for i in range(0, 96):
     randomBuff[i] = random.randint(0, 255)
 
 print("> randomBuff")
@@ -17,19 +17,22 @@ hexdump(pIV)
 print("> Plaintext")
 hexdump(plaintext)
 
+print("Software AES")
 buffer = plaintext
-goal = time.ticks_ms() + 1000
+goal = time.ticks_ms() + 3000
 count = 0
 while time.ticks_ms() < goal:
     result = encryptAES_CBC(buffer, pKey, pIV)
     count += 1
+count = int(count/3)
 print("Encryption: {} rounds / second".format(count))
 
-goal = time.ticks_ms() + 1000
+goal = time.ticks_ms() + 3000
 count = 0
 while time.ticks_ms() < goal:
     result = decryptAES_CBC(buffer, pKey, pIV)
     count += 1
+count = int(count/3)
 print("Decryption: {} rounds / second".format(count))
 
 plaintext = randomBuff[32:96]
@@ -42,7 +45,13 @@ print("> Deciphered")
 hexdump(buffer)
 
 if buffer[0:64] == plaintext[0:64]:
-    print("[√] Test successful")
+    print("[√] AES test successful")
 else:
-    print("[X] Test failed")
+    print("[X] AES test failed")
 
+crc0 = crc(plaintext)
+crc1 = crc(buffer)
+if crc0 == crc1:
+    print("[√] CRC test successful")
+else:
+    print("[X] CRC test failed")
